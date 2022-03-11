@@ -4,11 +4,9 @@
 
 > Uma página web que mostra a hora atual (e atualiza conforme o tempo passa) e, conforme o horário, altera a cor de fundo e a imagem.
 
-
+<b>A web page pode ser visualizada [aqui](https://whatimeisit.netlify.app/).</b>
 
 ## 🤝 Colaboradores
-
-Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 <table>
   <tr align="center">
