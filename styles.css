@@ -38,8 +38,51 @@ section {
   width: 40%;
 }
 
-#hour-message {
-  font-size: 18px;  
+/* ---- SECTION CONFIG ---- */
+
+#alarm-clock {
+  align-items: center;
+  display: flex;
+  gap: 30px;    
+}
+
+.hour-text {
+  font-size: 17px;  
+  text-align: center;
+}
+
+p:first-child {
+  margin-bottom: 8px;
+}
+ 
+.alarm-settings {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: "input-time select"
+                       "btn btn"; 
+}
+
+.input-time {
+  cursor: pointer;
+  grid-area: input-time;
+}
+
+.height-size {
+  height: 25px;
+}
+
+.select-song {
+  grid-area: select;
+}
+
+.btn-alarm {
+  border: none;
+  border-radius: 7px;  
+  color: var(--color-white);
+  cursor: pointer;   
+  font-weight: 700; 
+  grid-area: btn;    
+  padding: 0 5px;  
 }
 
 #main-img {  
@@ -47,6 +90,8 @@ section {
   height: 200px;  
   width: 200px;
 }
+
+/* ---- FOOTER CONFIG ---- */
 
 footer p {
   color: var(--color-white);
@@ -57,3 +102,16 @@ footer p {
 footer span {
   color: rgba(245, 25, 25, 0.959);
 }
+
+/* ---- MEDIA QUERY ---- */
+
+@media screen and (max-width: 1024px){
+  
+  section {
+    height: 60%;
+  }
+
+  #alarm-clock {
+     flex-direction: column;
+  }
+};

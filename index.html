@@ -17,13 +17,23 @@
     <h1 class="header-title">Hora do Dia</h1>
   </header>
   
-  <section>
-    <div>
-      <p id="hour-message"></p>
-    </div>
-    <div>
-      <img id="main-img">
-    </div>    
+  <section>   
+    <div class="hour-text">
+      <p id="hour-message"></p>    
+      <p>Se precisar de um despertador, escolha abaixo o horário e uma das opções de som desejados:</p>
+    </div>      
+    <div id="alarm-clock">     
+      <img id="main-img">       
+      <div class="alarm-settings">
+        <input type="time" class="input-time height-size" value="08:30">
+        <select class="height-size select-song">
+          <option value="som1">Som 1</option>
+          <option value="som2">Som 2</option>
+          <option value="som3">Som 3</option>           
+        </select>  
+        <button disabled class="height-size btn-alarm">Ativar Alarme</button>       
+      </div>             
+    </div>            
   </section>
 
   <footer>
