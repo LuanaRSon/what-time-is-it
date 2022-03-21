@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>What time is it?</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
   
   <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="getTime()">
+<body onload="showTime()">
   <header>
     <h1 class="header-title">Hora do Dia</h1>
   </header>
@@ -31,7 +31,8 @@
           <option value="som2">Som 2</option>
           <option value="som3">Som 3</option>           
         </select>  
-        <button disabled class="height-size btn-alarm">Ativar Alarme</button>       
+        <button disabled class="height-size btn-alarm">Ativar Alarme</button>
+        <button disabled class="height-size btn-stop">Desativar</button>       
       </div>             
     </div>            
   </section>

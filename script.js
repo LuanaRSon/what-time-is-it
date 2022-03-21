@@ -13,14 +13,14 @@ const images = [
 }];
 
 const btnAlarm = document.getElementsByClassName("btn-alarm")[0];
+const btnStopMusic = document.getElementsByClassName("btn-stop")[0];
 
-function getTime() {  
-  const message = document.getElementById("hour-message"); 
-
+const getTime = () => {
   const data = new Date();
   let hour = data.getHours();
   let minutes = data.getMinutes();
-
+  let fullTime;
+  
   if (hour < 10) {
     hour = "0" + hour;
   }
@@ -28,47 +28,75 @@ function getTime() {
   if (minutes < 10) {
     minutes = "0" + minutes;
   }
+  fullTime = `${hour}:${minutes}`;    
 
-  message.innerHTML = `Agora são ${hour}:${minutes} horas.` 
-  changeLayout(hour);
-  setTimeout("getTime()",500);
+  return fullTime;
 }
 
 function changeLayout(hour) {  
-  const img = document.getElementById("main-img");    
+  const imgContainer = document.getElementById("main-img"); 
 
+  const morningBackgroundColor1 = "rgba(97, 140, 241, 0.897)";
+  const morningBackgroundColor2 = "rgb(53, 87, 165)";
+  const afternoonBackgroundColor1 = "#f1ae8cd8";
+  const afternoonBackgroundColor2 = "#e07139";
+  const nightBackgroundColor1 = "#314B50";
+  const nightBackgroundColor2 = "#2f3538";
+  
   if (hour >= 6 && hour < 12) {
-    img.src = images[0].srcImg;
-    img.alt = images[0].altText;
-    document.body.style.background = "linear-gradient(rgba(97, 140, 241, 0.897) 35%, rgb(53, 87, 165)";
-    btnAlarm.style.background = "rgba(97, 140, 241, 0.897)";   
+    imgContainer.src = images[0].srcImg;
+    imgContainer.alt = images[0].altText;
+    document.body.style.background = `linear-gradient(${morningBackgroundColor1} 35%, ${morningBackgroundColor2})`;
+    btnAlarm.style.background = morningBackgroundColor1; 
+    btnStopMusic.style.background = morningBackgroundColor1;
 
   } else if (hour >= 12 && hour < 18) {
-    img.src = images[1].srcImg;
-    img.alt = images[1].altText;   
-    document.body.style.background = "linear-gradient(#f1ae8cd8 35%, #e07139)";   
-    btnAlarm.style.background = "#f1ae8cd8";  
+    imgContainer.src = images[1].srcImg;
+    imgContainer.alt = images[1].altText;   
+    document.body.style.background = `linear-gradient(${afternoonBackgroundColor1} 35%, ${afternoonBackgroundColor2})`;   
+    btnAlarm.style.background = afternoonBackgroundColor1;  
+    btnStopMusic.style.background = afternoonBackgroundColor1;
 
   } else {    
-    img.src = images[2].srcImg;
-    img.alt = images[2].altText;
-    document.body.style.background = "linear-gradient(#314B50 35%, #2f3538)"; 
-    btnAlarm.style.background = "#314B50";   
-
+    imgContainer.src = images[2].srcImg;
+    imgContainer.alt = images[2].altText;
+    document.body.style.background = `linear-gradient(${nightBackgroundColor1} 35%, ${nightBackgroundColor2})`; 
+    btnAlarm.style.background = nightBackgroundColor1;   
+    btnStopMusic.style.background = nightBackgroundColor1;
   }
 };
 
-// EM DESENVOLVIMENTO
-// function setAlarm(hour, minutes) {
+let showTimeInterval = setInterval(showTime, 700);
+function showTime() {
+  const message = document.getElementById("hour-message");
+
+  const time = getTime();  
+  const hour = parseInt(time);  
+
+  changeLayout(hour);  
+
+  message.innerHTML = `Agora são ${time} horas.`      
+}
+
+// Functions in development, not ready yet.
+// let setAlarmInterval;
+// const intervalFunction = () => setAlarmInterval = setInterval(setAlarm, 700);
+
+// function setAlarm() {    
 //   const alarmTime = document.getElementsByClassName("input-time")[0].value;
-//   const song = document.getElementsByClassName("select-song")[0].value;  
+//   const song = document.getElementsByClassName("select-song")[0].value;
+//   const time = getTime();
+
+//   if (alarmTime === time) {
+//     music1.play();    
+//   }    
 // };
 
-// btnAlarm.addEventListener("click", setAlarm);
-
-// EM DESENVOLVIMENTO
-// function showTime() {
-//   const message = document.getElementById("hour-message"); 
-
-//   setTimeout("showTime()",500);
+// function stopMusic() { 
+//   clearInterval(setAlarmInterval);
+//   music1.currentTime = 0;   
+//   music1.pause(); 
 // }
+
+// btnAlarm.addEventListener("click", intervalFunction);
+// btnStopMusic.addEventListener("click", stopMusic);

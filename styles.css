@@ -59,7 +59,7 @@ p:first-child {
   display: grid;
   grid-gap: 10px;
   grid-template-areas: "input-time select"
-                       "btn btn"; 
+                       "btn-alarm btn-stop"; 
 }
 
 .input-time {
@@ -72,17 +72,31 @@ p:first-child {
 }
 
 .select-song {
+  cursor: pointer;
   grid-area: select;
 }
 
 .btn-alarm {
+  grid-area: btn-alarm;
+}
+
+.btn-stop {
+  grid-area: btn-stop;
+}
+
+.btn-alarm,
+.btn-stop {
   border: none;
   border-radius: 7px;  
   color: var(--color-white);
   cursor: pointer;   
-  font-weight: 700; 
-  grid-area: btn;    
+  font-weight: 700;       
   padding: 0 5px;  
+}
+
+.btn-alarm:active,
+.btn-stop:active {
+  opacity: 0.8;
 }
 
 #main-img {  
@@ -103,12 +117,13 @@ footer span {
   color: rgba(245, 25, 25, 0.959);
 }
 
-/* ---- MEDIA QUERY ---- */
+/* ---- MEDIA QUERIES ---- */
 
-@media screen and (max-width: 1024px){
+/* Desktops and laptops */
+@media screen and (max-width: 1100px){
   
   section {
-    height: 60%;
+    height: 70%;
   }
 
   #alarm-clock {
